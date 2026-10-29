@@ -127,7 +127,7 @@ static inline void tima_send_cmd (unsigned int p1, unsigned int cmdid)
 	volatile uint32_t tima_cmdid = BUILD_CMD_ID(cmdid); 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension virt\n"
+        ""
 #endif	
 		"stmfd   sp!, {r0-r4}\n"   
 		"mov     r2, %0\n" /* r2 carry mcr_val */
@@ -144,7 +144,7 @@ static inline void tima_send_cmd2 (unsigned int p1, unsigned int p2, unsigned in
 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension virt\n"
+        ""
 #endif	
 	"stmfd   sp!, {r0-r4}\n"
     "mov     r2, %0\n"
@@ -161,7 +161,7 @@ static inline void tima_send_cmd3 (unsigned int p1, unsigned int p2,unsigned int
 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension virt\n"
+        ""
 #endif	
 	"stmfd   sp!, {r0-r4}\n"
     "mov     r2, %0\n"
@@ -176,7 +176,7 @@ static inline void tima_send_cmd4 (unsigned int p1, unsigned int p2, unsigned in
 	volatile uint32_t tima_cmdid = BUILD_CMD_ID(cmdid); 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension virt\n"
+        ""
 #endif	
 		"stmfd   sp!, {r0-r5}\n"
 		"mov     r2, %0\n"
@@ -192,7 +192,7 @@ static inline void tima_send_cmd5 (unsigned int p1, unsigned int p2, unsigned in
 	volatile uint32_t tima_cmdid = BUILD_CMD_ID(cmdid); 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension virt\n"
+        ""
 #endif	
 		"stmfd   sp!, {r0-r5}\n"
 		"mov     r2, %0\n"
@@ -211,7 +211,7 @@ static inline void tima_send_cmd (unsigned int p1, unsigned int cmdid)
 	volatile uint32_t tima_cmdid = BUILD_CMD_ID(cmdid); 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension sec\n"
+        ""
 #endif	
 		"stmfd   sp!, {r0-r4}\n"   
 		"mov     r2, %0\n" /* r2 carry mcr_val */
@@ -228,7 +228,7 @@ static inline void tima_send_cmd2 (unsigned int p1, unsigned int p2, unsigned in
 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension sec\n"
+        ""
 #endif	
 	"stmfd   sp!, {r0-r4}\n"
     "mov     r2, %0\n"
@@ -245,7 +245,7 @@ static inline void tima_send_cmd3 (unsigned int p1, unsigned int p2,unsigned int
 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension virt\n"
+        ""
 #endif	
 	"stmfd   sp!, {r0-r4}\n"
     "mov     r2, %0\n"
@@ -260,7 +260,7 @@ static inline void tima_send_cmd4 (unsigned int p1, unsigned int p2, unsigned in
 	volatile uint32_t tima_cmdid = BUILD_CMD_ID(cmdid); 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension sec\n"
+        ""
 #endif	
 		"stmfd   sp!, {r0-r5}\n"
 		"mov     r2, %0\n"
@@ -276,7 +276,7 @@ static inline void tima_send_cmd5 (unsigned int p1, unsigned int p2, unsigned in
 	volatile uint32_t tima_cmdid = BUILD_CMD_ID(cmdid); 
 	asm volatile (
 #if __GNUC__ >= 4 && __GNUC_MINOR__ >= 6
-        ".arch_extension sec\n"
+        ""
 #endif	
 		"stmfd   sp!, {r0-r5}\n"
 		"mov     r2, %0\n"

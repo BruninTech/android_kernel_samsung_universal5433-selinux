@@ -34,6 +34,8 @@ enum uhid_event_type {
 	UHID_INPUT,
 	UHID_FEATURE,
 	UHID_FEATURE_ANSWER,
+	UHID_CREATE2,		/* backported from mainline 3.15 (needed by BlueZ >= 5.x) */
+	UHID_INPUT2,
 };
 
 struct uhid_create_req {
@@ -52,6 +54,19 @@ struct uhid_create_req {
 
 #define UHID_DATA_MAX 4096
 
+struct uhid_create2_req {
+	__u8 name[128];
+	__u8 phys[64];
+	__u8 uniq[64];
+	__u16 rd_size;
+	__u16 bus;
+	__u32 vendor;
+	__u32 product;
+	__u32 version;
+	__u32 country;
+	__u8 rd_data[4096];	/* HID_MAX_DESCRIPTOR_SIZE */
+} __attribute__((__packed__));
+
 enum uhid_report_type {
 	UHID_FEATURE_REPORT,
 	UHID_OUTPUT_REPORT,
@@ -61,6 +76,11 @@ enum uhid_report_type {
 struct uhid_input_req {
 	__u8 data[UHID_DATA_MAX];
 	__u16 size;
+} __attribute__((__packed__));
+
+struct uhid_input2_req {
+	__u16 size;
+	__u8 data[UHID_DATA_MAX];
 } __attribute__((__packed__));
 
 struct uhid_output_req {
@@ -94,6 +114,8 @@ struct uhid_event {
 	union {
 		struct uhid_create_req create;
 		struct uhid_input_req input;
+		struct uhid_create2_req create2;
+		struct uhid_input2_req input2;
 		struct uhid_output_req output;
 		struct uhid_output_ev_req output_ev;
 		struct uhid_feature_req feature;
